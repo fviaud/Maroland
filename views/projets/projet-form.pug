@@ -1,10 +1,15 @@
-form(method="post" action="/projets")
-  div
+form(class="p-2" method="post" action="/projets")
+  div(class="form-group")
     label Nom du projet:
-    input(name="nom" " type="text")
-  div
+    input(name="nom" class="form-control" type="text" )
+  div(class="form-group")
     label Description:
-    textarea(name="Description" rows="5" placeholder="Description du projet ?")
+    textarea(name="description" class="form-control" rows="5" placeholder="Descriptf du projet")
   div
-    input(type="submit" value="Ajouter")
-
+    if (locals.errors && errors && errors.length)
+      ul
+        each error in errors
+          li= error
+  div
+    input(type="submit" value="Ajouter" class="btn btn-primary btn-sm mr-2")
+    a(href="/objets" class="btn btn-secondary btn-lg btn-sm" role="button")="Annuler"

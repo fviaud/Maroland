@@ -1,5 +1,8 @@
+p liste des projets
 if projets
   each projet in projets 
-    projet.nom
+    p=projet.nom
+      span=projet.description
+      span=projet.auteur.username
 else
   p(class="p-3") Aucun projet
