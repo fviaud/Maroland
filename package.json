@@ -1,13 +1,19 @@
 {
-  "name": "node-sandbox",
+  "name": "maroland",
   "version": "1.0.0",
-  "description": "Simple Node Sandbox",
-  "main": "src/index.js",
+  "description": "Poc projet new Maroland",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon src/index.js localhost 8080"
+    "start": "nodemon app.js localhost 8080"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "4.17.1",
+    "mongoose": "5.6.2",
+    "morgan": "1.9.1",
+    "pug": "2.0.4"
+  },
   "devDependencies": {
     "nodemon": "1.18.4"
-  }
+  },
+  "keywords": []
 }
