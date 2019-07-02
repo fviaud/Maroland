@@ -1,10 +1,17 @@
 const { getProjets, createProjet } = require("../queries/projets.queries");
 
+const apiProjetMap = p => ({
+  titre: p.nom,
+  details: p.description,
+  auteur: p.auteur.username
+});
+
 exports.listProjets = async (req, res, next) => {
   try {
-    const projets = await getProjets();
-    console.log(projets);
+    const data = await getProjets();
+    const projets = data.map(apiProjetMap);
     res.render("projets/projets", { projets });
+    //res.json(projets);
   } catch (e) {
     next(e);
   }

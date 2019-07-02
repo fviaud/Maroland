@@ -14,7 +14,7 @@ exports.signin = (req, res, next) => {
       next(err);
     } else if (!user) {
       res.render("auth/auth-form", {
-        errors: [info.message],
+        errors: ["Pas d'utilisateur avec ce login ou mauvais mot de passe."],
         isAuthenticated: req.isAuthenticated(),
         currentUser: req.user
       });

@@ -17,3 +17,8 @@ exports.signup = async (req, res, next) => {
     });
   }
 };
+
+exports.signout = (req, res, next) => {
+  req.logout();
+  res.redirect("/auth/signin/form");
+};
