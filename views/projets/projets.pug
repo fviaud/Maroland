@@ -1,3 +1,9 @@
-a(href="/auth/signout") deconnexion
-a(href="/projets/new") Ajouter un projet
-include projets-list.pug
+extends ../layout.pug
+
+block content
+  navbar(class="navbar navbar-expand-lg navbar-light bg-white")
+    h6 Projets 
+    ul(class="navbar-nav flex-row ml-auto")
+      li(class="nav-item mr-2")
+        a(class="btn btn-success btn-sm " href="/projets/new") Ajouter un projet
+  include projets-list.pug

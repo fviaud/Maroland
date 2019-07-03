@@ -1,8 +1,9 @@
-p liste des projets
 if projets
-  each projet in projets 
-    p=projet.titre
-      span=projet.details
-      span=projet.auteur
+  each projet in projets
+    div(class="d-flex flex-row")
+      i(class="fas fa-project-diagram pr-2 text-success d-flex align-items-center")
+      div(class="d-flex flex-column flex-grow-1 overflow-ellipsis")
+        strong=projet.titre
+        div(class="overflow-ellipsis")=projet.details
 else
   p(class="p-3") Aucun projet
