@@ -3,7 +3,7 @@ if projets
     div(class="d-flex flex-row")
       i(class="fas fa-project-diagram pr-2 text-success d-flex align-items-center")
       div(class="d-flex flex-column flex-grow-1 overflow-ellipsis")
-        strong=projet.titre
+        a(href="#" class="stretched-links")=projet.titre
         div(class="overflow-ellipsis")=projet.details
 else
   p(class="p-3") Aucun projet

@@ -2,8 +2,9 @@ extends ../layout.pug
 
 block content
   navbar(class="navbar navbar-expand-lg navbar-light bg-white")
-    h6 Projets 
+    h6 Mes Projets 
     ul(class="navbar-nav flex-row ml-auto")
       li(class="nav-item mr-2")
-        a(class="btn btn-success btn-sm " href="/projets/new") Ajouter un projet
+        a(class="btn btn-success btn-sm " href="/projets/new")
+          <i class="fas fa-plus"></i>
   include projets-list.pug
