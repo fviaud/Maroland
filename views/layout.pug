@@ -13,7 +13,15 @@ html(lang="en")
     include includes/topbar.pug
     .container-fluid
        div(class="row")
-        div(class="col-sm-4 projets")
+        div(class="col-sm-2 projets p-0")
           block content
-        div(class="col")
-          div details
+        div(class="col mt-1")
+          ul(class="nav")
+            li(class="nav-item")
+              a(class="nav-link active" href="#") Détails
+            li(class="nav-item")
+              a(class="nav-link" href="#") Reservations
+            li(class="nav-item")
+              a(class="nav-link" href="#") Demandes de travaux
+            li(class="nav-item")
+              a(class="nav-link disabled" href="#") Facturation
