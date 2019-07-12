@@ -2,10 +2,8 @@ script(src="/javascripts/projets/projets.js")
 if projets
   each projet in projets
     div(class="list-group list-group-flush projet" projetId=projet.id)
-      button(class="d-flex flex-row list-group-item list-group-item-action")
-        //i(class="fas fa-project-diagram pr-2 text-success d-flex align-items-center")
-        div(class="d-flex flex-column flex-grow-1 overflow-ellipsis")
-          h6(class="font-weight-bold")=projet.titre
-          span(class="overflow-ellipsis font-weight-light")=projet.details
+      div(class="d-flex flex-column flex-grow-1 overflow-ellipsis list-group-item list-group-item-action border-0" projetId=projet.id )
+        span(class="font-weight-bold" projetId=projet.id )=projet.titre
+        span(class="overflow-ellipsis font-weight-light" projetId=projet.id)=projet.details
 else
   p(class="p-3") Aucun projet

@@ -8,6 +8,8 @@ html(lang="en")
     link(rel="stylesheet" href="/css/main.css")
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous")
 
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+
     title New Maroland
   body
     include includes/topbar.pug
@@ -25,3 +27,4 @@ html(lang="en")
               a(class="nav-link" href="#") Demandes de travaux
             li(class="nav-item")
               a(class="nav-link disabled" href="#") Facturation
+        div(id="reservation-list-container")
