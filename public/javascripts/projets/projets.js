@@ -11,6 +11,7 @@ function bindObjet() {
       const reservationsContainer = document.querySelector(
         "#reservation-list-container"
       );
+      reservationsContainer.innerHTML = "Actualisation en cours ";
       axios
         .get("/reservations/" + projetId)
         .then(function(response) {

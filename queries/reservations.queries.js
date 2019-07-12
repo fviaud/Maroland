@@ -14,3 +14,10 @@ exports.createReservation = reservation => {
   const newReservation = new Reservation(reservation);
   return newReservation.save();
 };
+
+exports.getReservationsFromProjetId = projetId => {
+  console.log(projetId);
+  return Reservation.find({ auteur: projetId })
+    .populate("auteur")
+    .exec();
+};

@@ -1,4 +1,16 @@
-each reservation in reservations
-    div=reservation.nom
-else
-  p(class="p-3") Aucune reservations
+div(class="table-responsive")
+  table(class="table table-hover")
+    thead
+      tr
+        th(scope="col") Nom
+        th(scope="col") Last
+        th(scope="col") Handle
+    tbody
+      tr
+      each reservation in reservations
+        tr
+          td=reservation.nom
+          td Otto
+          td @mdo
+      else
+        p(class="p-3") Aucune reservations

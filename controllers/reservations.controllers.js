@@ -1,6 +1,7 @@
 const {
   getReservations,
-  createReservation
+  createReservation,
+  getReservationsFromProjetId
 } = require("../queries/reservations.queries");
 
 const apiObjetMap = r => ({
@@ -12,7 +13,8 @@ const apiObjetMap = r => ({
 
 exports.listReservations = async (req, res, next) => {
   try {
-    const data = await getReservations();
+    //const data = await getReservations();
+    const data = await getReservationsFromProjetId(req.params.projetId);
     const reservations = data.map(apiObjetMap);
     res.render("reservations/reservations", {
       reservations,
