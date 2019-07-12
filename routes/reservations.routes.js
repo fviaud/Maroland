@@ -5,7 +5,7 @@ const {
   addReservation
 } = require("../controllers/reservations.controllers");
 
-router.get("/", listReservations);
-router.get("/new", newReservation);
-router.post("/", addReservation);
+router.get("/new/:projetId", newReservation);
+router.get("/:projetId", listReservations);
+router.post("/:projetId", addReservation);
 module.exports = router;

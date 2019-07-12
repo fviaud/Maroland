@@ -11,9 +11,8 @@ function bindObjet() {
       const reservationsContainer = document.querySelector(
         "#reservation-list-container"
       );
-      alert(projetId);
       axios
-        .get("/reservations/list/" + projetId)
+        .get("/reservations/" + projetId)
         .then(function(response) {
           reservationsContainer.innerHTML = response.data;
         })

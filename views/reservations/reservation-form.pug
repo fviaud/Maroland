@@ -1,0 +1,12 @@
+form(class="p-2" method="post" action="/reservations/" + projetId)
+  div(class="form-group")
+    label Type de la reservation:
+    input(name="nom" class="form-control" type="text" )
+  div
+    if (locals.errors && errors && errors.length)
+      ul
+        each error in errors
+          li= error
+  div
+    input(type="submit" value="Ajouter" class="btn btn-primary btn-sm mr-2")
+    a(href="/projets" class="btn btn-secondary btn-lg btn-sm" role="button")="Annuler"
