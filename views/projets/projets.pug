@@ -1,5 +1,6 @@
 extends ../layout.pug
 block content
-  a(class="btn btn-success btn-sm mt-1" href="/projets/new")
-    span New projet
+  nav(class="navbar")
+    a(class="btn btn btn-outline-primary btn-sm ml-auto m-1" href="/projets/new")
+      span New projet
   include projets-list.pug

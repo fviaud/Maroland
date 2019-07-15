@@ -10,28 +10,30 @@ html(lang="en")
 
     script(src="https://unpkg.com/axios/dist/axios.min.js")
 
-
     link(rel="stylesheet" href="/css/orangeHelvetica.css")
     link(rel="stylesheet" href="/css/orangeIcons.css")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boosted@4.3.1/dist/css/boosted.min.css" integrity="sha384-pQZlBsB+mYr1o13jiUUGYbwDh2LirLZP0Pvou6wwJ/sWWoHlU8oVY2l8sX/Ejhrr" crossorigin="anonymous")
 
-
-
     title New Maroland
   body
-    include includes/topbar.pug
-    .container-fluid
-      div(class="row")
-        div(class="col-sm-2 projets p-0")
-          block content
-        div(class="col mt-1")
-          ul(class="nav")
+    div(class="container-fluid")
+      include includes/topbar.pug
+      div(class="row pt-5")
+        nav(class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar")
+          ul(class="nav flex-column")
             li(class="nav-item")
-              a(class="nav-link active" href="#") Détails
+              a(class="nav-link" href="#" ) Dashboard
+            li(class="nav-item")
+              a(class="nav-link" href="#" ) Projets
             li(class="nav-item")
               a(class="nav-link" href="#") Reservations
             li(class="nav-item")
-              a(class="nav-link" href="#") Demandes de travaux
+              a(class="nav-link" href="#") Demandes
             li(class="nav-item")
-              a(class="nav-link disabled" href="#") Facturation
-          div(id="reservation-list-container")
+              a(class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true") Facturation
+        div(class="col-sm-9")
+          block content
+          .row         
+            div(class="col-sm-3") reservation
+            div(class="col-sm-3") Demandes
+

@@ -6,11 +6,9 @@ div(class="table-responsive")
         th(scope="col") Last
         th(scope="col") Handle
     tbody
-      tr
       each reservation in reservations
         tr
           td=reservation.nom
           td Otto
           td @mdo
-      else
-        p(class="p-3") Aucune reservations
+
