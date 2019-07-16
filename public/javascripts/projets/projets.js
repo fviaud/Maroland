@@ -8,10 +8,7 @@ function bindObjet() {
   elements.forEach(e => {
     e.addEventListener("click", $event => {
       const projetId = $event.target.getAttribute("projetId");
-      alert(projetId);
-      const reservationsContainer = document.querySelector(
-        "#reservation-list-container"
-      );
+      const reservationsContainer = document.querySelector("#data");
       reservationsContainer.innerHTML = "Actualisation en cours ";
       axios
         .get("/reservations/" + projetId)

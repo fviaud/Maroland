@@ -5,11 +5,12 @@ div(class="table-responsive")
       tr
         th(scope="col") Nom
         th(scope="col") Auteur
-        th(scope="col") Description
+        th(scope="col") Type
     tbody
       each projet in projets
         tr
-          td
-            a(class="row projet" projetId=projet.id href="#")=projet.titre
-            span(class="row font-weight-light d-inline-block text-truncate" style="max-width:100%;")=projet.details
+          td(class="p-0")
+            a(class="row pl-2 projet" projetId=projet.id href="#")=projet.titre
+            span(class="row pl-2 font-weight-light d-inline-block text-truncate" style="max-width:100%;")=projet.details
           td=projet.auteur
+          td=""

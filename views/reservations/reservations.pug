@@ -1,3 +1,11 @@
-
-a(class="btn btn-success btn-sm ml-auto" href="/reservations/new/"+ projetId) New Reeservation
+div(class="col-sm-9")
+    nav(aria-label="breadcrumb")
+    ul(class="breadcrumb")
+        li(class="breadcrumb-item")
+            a(href="/") Projet
+        li(class="breadcrumb-item active" aria-current="page")=projet.nom
+        li(class="breadcrumb-item active" aria-current="page") Reservations
+nav(class="navbar")
+    a(class="btn btn btn-outline-primary btn-sm ml-auto m-1" href="/reservations/new/"+ projetId) New Reservation
+      
 include reservations-list.pug

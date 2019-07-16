@@ -4,6 +4,8 @@ const {
   getReservationsFromProjetId
 } = require("../queries/reservations.queries");
 
+const { getProjet } = require("../queries/projets.queries");
+
 const apiObjetMap = r => ({
   id: r._id,
   nom: r.nom
@@ -16,9 +18,11 @@ exports.listReservations = async (req, res, next) => {
     //const data = await getReservations();
     const data = await getReservationsFromProjetId(req.params.projetId);
     const reservations = data.map(apiObjetMap);
+    const projet = await getProjet(req.params.projetId);
     res.render("reservations/reservations", {
       reservations,
-      projetId: req.params.projetId
+      projetId: req.params.projetId,
+      projet: projet
     });
     //res.json(projets);
   } catch (e) {
