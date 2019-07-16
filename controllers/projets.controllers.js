@@ -1,11 +1,13 @@
 const { getProjets, createProjet } = require("../queries/projets.queries");
+var moment = require("moment");
 
 const apiProjetMap = p => ({
   id: p._id,
   titre: p.nom,
   details: p.description,
   auteurId: p.auteur._id,
-  auteur: p.auteur.username
+  auteur: p.auteur.username,
+  creation: p.creation
 });
 
 exports.listProjets = async (req, res, next) => {
@@ -13,7 +15,8 @@ exports.listProjets = async (req, res, next) => {
     const data = await getProjets();
     const projets = data.map(apiProjetMap);
     res.render("projets/projets", {
-      projets
+      projets,
+      moment
     });
     //res.json(projets);
   } catch (e) {
