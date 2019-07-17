@@ -1,3 +1,4 @@
+script(src="/javascripts/reservations/reservations.js")
 div(class="col-sm-9")
     nav(aria-label="breadcrumb")
     ul(class="breadcrumb")
@@ -6,6 +7,6 @@ div(class="col-sm-9")
         li(class="breadcrumb-item active" aria-current="page")=projet.nom
         li(class="breadcrumb-item active" aria-current="page") Reservations
 nav(class="navbar")
-    a(class="btn btn btn-outline-primary btn-sm ml-auto m-1" href="/reservations/new/"+ projetId) New Reservation
-      
+    button(type="button" class="btn btn-secondary btn-sm ml-auto m-1" id="BtNewReservation" projetId=projet.id) New Reservation
+  
 include reservations-list.pug

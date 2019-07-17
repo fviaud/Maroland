@@ -17,7 +17,7 @@ exports.createReservation = reservation => {
 
 exports.getReservationsFromProjetId = projetId => {
   console.log(projetId);
-  return Reservation.find({ auteur: projetId })
-    .populate("auteur")
+  return Reservation.find({ projet: projetId })
+    .populate("projet")
     .exec();
 };

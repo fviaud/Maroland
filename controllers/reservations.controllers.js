@@ -43,7 +43,7 @@ exports.newReservation = async (req, res, next) => {
 exports.addReservation = async (req, res, next) => {
   try {
     const body = req.body;
-    await createReservation({ ...body, auteur: req.params.projetId });
+    await createReservation({ ...body, projet: req.params.projetId });
     res.redirect("/projets/");
   } catch (e) {
     const errors = Object.keys(e.errors).map(key => e.errors[key].message);

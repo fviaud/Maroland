@@ -7,7 +7,7 @@ const reservationSchema = schema(
       type: String,
       required: [true, "On doit preciser un nom de reservation !"]
     },
-    auteur: {
+    projet: {
       type: schema.Types.ObjectId,
       ref: "projet",
       required: true

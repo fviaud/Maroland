@@ -1,8 +1,0 @@
-script(src="/javascripts/projets/projets.js")
-each projet in projets
-  div(class="list-group list-group-flush projet" projetId=projet.id)
-    div(class="d-flex flex-column flex-grow-1 overflow-ellipsis list-group-item list-group-item-action border-0" projetId=projet.id )
-      span(projetId=projet.id )=projet.titre
-      //span(class="overflow-ellipsis font-weight-light" projetId=projet.id)=projet.details
-else
-  p(class="p-3") Aucun projets
