@@ -1,9 +1,10 @@
 extends ../layout.pug
 block content
-  div(class="col-sm-9")
-    nav(aria-label="breadcrumb")
-      ul(class="breadcrumb")
-        li(class="breadcrumb-item active" aria-current="page") Projets
-  nav(class="navbar")
-    button(type="button" class="btn btn-secondary btn-sm ml-auto m-1" id="BtNewProjet") New projet
-  include projets-list.pug
+  div(class="row")
+    include ../includes/main-menu.pug
+    div(class="col-sm-9" id="data")
+      button(type="button" class="btn btn-secondary btn-sm ml-auto m-1 float-right" id="BtNewProjet") New projet
+      nav(aria-label="breadcrumb" )
+        ul(class="breadcrumb m-0")
+          li(class="breadcrumb-item active" aria-current="page") Projets
+      include projets-list.pug

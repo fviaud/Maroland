@@ -1,15 +1,10 @@
-form(class="p-2" method="post" action="/projets")
+form(class="p-2" method="post" action="/typeProjets")
   div(class="form-group")
     label Nom du projet:
     input(name="nom" class="form-control" type="text" )
   div(class="form-group")
     label Description:
-    textarea(name="description" class="form-control" rows="5" placeholder="Descriptf du projet")
-  div(class="form-group")
-    label Type de projet:
-    select(name="typeprojet" class="form-control" type="text" )
-      each typeprojet in typeprojets
-        option=typeprojet.nom
+    textarea(name="description" class="form-control" rows="5" placeholder="Descriptif du type deprojet")
   div
     if (locals.errors && errors && errors.length)
       ul

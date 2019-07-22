@@ -1,5 +1,9 @@
 nav(class="navbar navbar-dark bg-dark fixed-top")
   a(class="navbar-brand" href="#")
     img(src="/images/orange_logo.svg" class="d-inline-block align-top" alt="")
-  a(class="navbar-brand" href="#") New Maroland
-  a(class="btn btn-primary btn-sm ml-auto m-1" href="/auth/signout") Deconnexion
+    a(class="navbar-brand" href="#") New Maroland
+  if isAuthenticated 
+    a(class="btn btn-primary btn-sm ml-auto m-1" href="/auth/signout") Deconnexion
+  else
+    a(class="btn btn-primary btn-sm ml-auto m-1" href="/auth/signin/form") Connexion
+    a(class="btn btn-primary btn-sm m-1" href="/users/signup/form") Inscription

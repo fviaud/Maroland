@@ -1,4 +1,5 @@
 const { getProjets, createProjet } = require("../queries/projets.queries");
+const { getTypeProjets } = require("../queries/typeProjets.queries");
 var moment = require("moment");
 
 const apiProjetMap = p => ({
@@ -15,6 +16,7 @@ exports.listProjets = async (req, res, next) => {
     const data = await getProjets();
     const projets = data.map(apiProjetMap);
     res.render("projets/projets", {
+      isAuthenticated: req.isAuthenticated(),
       projets,
       moment
     });
@@ -26,7 +28,9 @@ exports.listProjets = async (req, res, next) => {
 
 exports.newProjet = async (req, res, next) => {
   try {
-    res.render("projets/projet-form");
+    const typeprojets = await getTypeProjets();
+    console.log(typeprojets);
+    res.render("projets/projet-form", { typeprojets });
   } catch (e) {
     next(e);
   }
