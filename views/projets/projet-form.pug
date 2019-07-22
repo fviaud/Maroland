@@ -7,9 +7,9 @@ form(class="p-2" method="post" action="/projets")
     textarea(name="description" class="form-control" rows="5" placeholder="Descriptf du projet")
   div(class="form-group")
     label Type de projet:
-    select(name="typeprojet" class="form-control" type="text" )
+    select(name="type" class="form-control" type="text" )
       each typeprojet in typeprojets
-        option=typeprojet.nom
+        option(value=typeprojet._id)=typeprojet.nom
   div
     if (locals.errors && errors && errors.length)
       ul

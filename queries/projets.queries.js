@@ -7,6 +7,7 @@ exports.getProjet = projetId => {
 exports.getProjets = () => {
   return Projet.find()
     .populate("auteur")
+    .populate("type")
     .exec();
 };
 

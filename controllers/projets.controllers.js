@@ -8,7 +8,8 @@ const apiProjetMap = p => ({
   details: p.description,
   auteurId: p.auteur._id,
   auteur: p.auteur.username,
-  creation: p.creation
+  creation: p.creation,
+  type: p.type.nom
 });
 
 exports.listProjets = async (req, res, next) => {
@@ -43,6 +44,7 @@ exports.addProjet = async (req, res, next) => {
     res.redirect("/projets");
   } catch (e) {
     const errors = Object.keys(e.errors).map(key => e.errors[key].message);
-    res.status(400).render("projets/projet-form", { errors });
+    const typeprojets = await getTypeProjets();
+    res.status(400).render("projets/projet-form", { errors, typeprojets });
   }
 };

@@ -15,6 +15,11 @@ const projetSchema = schema(
       type: schema.Types.ObjectId,
       ref: "user",
       required: true
+    },
+    type: {
+      type: schema.Types.ObjectId,
+      ref: "typeProjet",
+      required: true
     }
   },
   { timestamps: { createdAt: "creation", updatedAt: "maj" } }

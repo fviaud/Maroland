@@ -4,6 +4,7 @@ div(class="table-responsive")
     thead
       tr
         th(scope="col") Nom
+        th(scope="col") Type
         th(scope="col") Auteur
         th(scope="col") Creation
     tbody
@@ -12,5 +13,6 @@ div(class="table-responsive")
           td
             a(class="row pl-2 projet" projetId=projet.id href="#")=projet.titre
             span(class="row pl-2 font-weight-light d-inline-block text-truncate" style="max-width:100%;")=projet.details
+          td=projet.type
           td=projet.auteur
           td=moment(projet.creation).format("DD-MM-YYYY HH:mm")
