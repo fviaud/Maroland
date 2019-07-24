@@ -1,4 +1,8 @@
-const { getProjets, createProjet } = require("../queries/projets.queries");
+const {
+  getProjet,
+  getProjets,
+  createProjet
+} = require("../queries/projets.queries");
 const { getTypeProjets } = require("../queries/typeProjets.queries");
 var moment = require("moment");
 
@@ -30,7 +34,6 @@ exports.listProjets = async (req, res, next) => {
 exports.newProjet = async (req, res, next) => {
   try {
     const typeprojets = await getTypeProjets();
-    console.log(typeprojets);
     res.render("projets/projet-form", { typeprojets });
   } catch (e) {
     next(e);
@@ -46,5 +49,19 @@ exports.addProjet = async (req, res, next) => {
     const errors = Object.keys(e.errors).map(key => e.errors[key].message);
     const typeprojets = await getTypeProjets();
     res.status(400).render("projets/projet-form", { errors, typeprojets });
+  }
+};
+
+exports.projetEdit = async (req, res, next) => {
+  try {
+    const typeprojets = await getTypeProjets();
+    const projetId = req.params.projetId;
+    const projet = await getProjet(projetId);
+    res.render("projets/projet-form", {
+      projet,
+      typeprojets
+    });
+  } catch (e) {
+    next(e);
   }
 };

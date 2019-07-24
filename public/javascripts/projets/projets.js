@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function bindObjet() {
-  const elements = document.querySelectorAll(".projet");
+  const elements = document.querySelectorAll(".reservations");
   const reservationsContainer = document.querySelector("#data");
   elements.forEach(e => {
     e.addEventListener("click", $event => {
@@ -46,5 +46,16 @@ function bindObjet() {
       .catch(function(err) {
         console.log(err);
       });
+  });
+
+  const projets = document.querySelectorAll(".projets");
+  projets.forEach(e => {
+    e.addEventListener("click", $event => {
+      const projetId = $event.target.getAttribute("projetId");
+      reservationsContainer.innerHTML = "Actualisation en cours ";
+      axios.get("/projets/edit/" + projetId).then(function(response) {
+        reservationsContainer.innerHTML = response.data;
+      });
+    });
   });
 }

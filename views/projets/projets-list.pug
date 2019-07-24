@@ -6,13 +6,19 @@ div(class="table-responsive")
         th(scope="col") Nom
         th(scope="col") Type
         th(scope="col") Auteur
-        th(scope="col") Creation
+        th(scope="col") Date de création
+        th(scope="col") Réservations
+        th(scope="col") Etat
     tbody
       each projet in projets
         tr
           td
-            a(class="row pl-2 projet" projetId=projet.id href="#")=projet.titre
+            a(class="row pl-2 text-primary projets" projetId=projet.id href="#")=projet.titre
             span(class="row pl-2 font-weight-light d-inline-block text-truncate" style="max-width:100%;")=projet.details
           td=projet.type
           td=projet.auteur
           td=moment(projet.creation).format("DD-MM-YYYY HH:mm")
+          td 
+            a(class="text-primary reservations" projetId=projet.id href="#") 5
+          td En cours
+

@@ -20,6 +20,10 @@ const projetSchema = schema(
       type: schema.Types.ObjectId,
       ref: "typeProjet",
       required: true
+    },
+    basicat: {
+      type: String,
+      required: [true, "On doit saisir un descriptif du projet"]
     }
   },
   { timestamps: { createdAt: "creation", updatedAt: "maj" } }
