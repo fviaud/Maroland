@@ -34,7 +34,10 @@ exports.listProjets = async (req, res, next) => {
 exports.newProjet = async (req, res, next) => {
   try {
     const typeprojets = await getTypeProjets();
-    res.render("projets/projet-form", { typeprojets });
+    res.render("projets/projet-form", {
+      projet: {},
+      typeprojets
+    });
   } catch (e) {
     next(e);
   }
@@ -57,6 +60,7 @@ exports.projetEdit = async (req, res, next) => {
     const typeprojets = await getTypeProjets();
     const projetId = req.params.projetId;
     const projet = await getProjet(projetId);
+    console.log(projet);
     res.render("projets/projet-form", {
       projet,
       typeprojets

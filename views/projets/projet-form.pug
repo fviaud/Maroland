@@ -1,16 +1,16 @@
-form(class="p-2" method="post" action="/projets")
+form(class="p-2" method="post" action= projet._id ? "/projets/update/" + projet._id : "/projets")
   div(class="form-group")
     label Nom du projet:
-    input(name="nom" class="form-control" type="text" )
+    input(name="nom" class="form-control" type="text" value=projet.nom )
   div(class="form-group")
     label Description:
-    textarea(name="description" class="form-control" rows="5" placeholder="Descriptif du projet")
+    textarea(name="description" class="form-control" rows="5" placeholder="Descriptif du projet")= projet.description
   div(class="form-group")
     label Basicat:
     input(name="basicat" class="form-control" type="text" )
   div(class="form-group")
     label Type de projet:
-    select(name="type" class="form-control" type="text" )
+    select(name="type" class="form-control" type="text" value=1 )
       each typeprojet in typeprojets
         option(value=typeprojet._id)=typeprojet.nom
   div
@@ -19,5 +19,5 @@ form(class="p-2" method="post" action="/projets")
         each error in errors
           li= error
   div
-    input(type="submit" value="Ajouter" class="btn btn-primary btn-sm mr-2")
+    input(type="submit" value=projet._id ? "Modifier" : "Ajouter" class="btn btn-primary btn-sm mr-2")
     a(href="/projets" class="btn btn-secondary btn-lg btn-sm" role="button")="Annuler"
