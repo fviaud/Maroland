@@ -1,7 +1,9 @@
 const {
   getProjet,
   getProjets,
-  createProjet
+  createProjet,
+  updateProjet,
+  deleteProjet
 } = require("../queries/projets.queries");
 const { getTypeProjets } = require("../queries/typeProjets.queries");
 var moment = require("moment");
@@ -60,11 +62,39 @@ exports.projetEdit = async (req, res, next) => {
     const typeprojets = await getTypeProjets();
     const projetId = req.params.projetId;
     const projet = await getProjet(projetId);
-    console.log(projet);
     res.render("projets/projet-form", {
       projet,
       typeprojets
     });
+  } catch (e) {
+    next(e);
+  }
+};
+
+exports.projetUpdate = async (req, res, next) => {
+  const projetId = req.params.projetId;
+  try {
+    const body = req.body;
+    await updateProjet(projetId, body);
+    res.redirect("/projets");
+  } catch (e) {
+    const typeprojets = await getTypeProjets();
+    const errors = Object.keys(e.errors).map(key => e.errors[key].message);
+    const projet = await getProjet(projetId);
+    res.status(400).render("projets/projet-form", {
+      errors,
+      projet,
+      typeprojets,
+      isAuthenticated: req.isAuthenticated()
+    });
+  }
+};
+
+exports.projetDelete = async (req, res, next) => {
+  try {
+    const projetId = req.params.projetId;
+    await deleteProjet(projetId);
+    res.redirect("/projets");
   } catch (e) {
     next(e);
   }

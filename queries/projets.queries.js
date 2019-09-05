@@ -15,3 +15,15 @@ exports.createProjet = projet => {
   const newProjet = new Projet(projet);
   return newProjet.save();
 };
+
+exports.updateProjet = (projetId, projet) => {
+  return Projet.findByIdAndUpdate(
+    projetId,
+    { $set: projet },
+    { runValidators: true }
+  );
+};
+
+exports.deleteProjet = projetId => {
+  return Projet.findByIdAndDelete(projetId).exec();
+};

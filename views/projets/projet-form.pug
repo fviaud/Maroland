@@ -9,10 +9,13 @@ form(class="p-2" method="post" action= projet._id ? "/projets/update/" + projet.
     label Basicat:
     input(name="basicat" class="form-control" type="text" )
   div(class="form-group")
-    label Type de projet:
-    select(name="type" class="form-control" type="text" value=1 )
+    label Type de projet: 
+    select(name="type" class="form-control" type="text")
       each typeprojet in typeprojets
-        option(value=typeprojet._id)=typeprojet.nom
+        if projet.type && (typeprojet._id.toString() === projet.type.toString())
+          option( selected value=typeprojet._id)= typeprojet.nom
+        else
+          option( value=typeprojet._id)= typeprojet.nom    
   div
     if (locals.errors && errors && errors.length)
       ul
@@ -20,4 +23,6 @@ form(class="p-2" method="post" action= projet._id ? "/projets/update/" + projet.
           li= error
   div
     input(type="submit" value=projet._id ? "Modifier" : "Ajouter" class="btn btn-primary btn-sm mr-2")
+    if projet._id 
+      a(class="btn btn-danger btn-lg btn-sm mr-2" href="/projets/delete/"+ projet._id)="Supprimer"
     a(href="/projets" class="btn btn-secondary btn-lg btn-sm" role="button")="Annuler"

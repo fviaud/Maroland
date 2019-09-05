@@ -4,7 +4,8 @@ exports.signinForm = (req, res, next) => {
   res.render("auth/auth-form", {
     errors: null,
     isAuthenticated: req.isAuthenticated(),
-    currentUser: req.user
+    currentUser: req.user,
+    forconnexion: true
   });
 };
 

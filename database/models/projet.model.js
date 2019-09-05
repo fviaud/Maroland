@@ -23,7 +23,7 @@ const projetSchema = schema(
     },
     basicat: {
       type: String,
-      required: [true, "On doit saisir un descriptif du projet"]
+      required: [true, "On doit saisir un basicat du projet"]
     }
   },
   { timestamps: { createdAt: "creation", updatedAt: "maj" } }
